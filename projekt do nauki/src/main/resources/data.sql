@@ -1,0 +1,10 @@
+INSERT INTO category (description) VALUES ('Amerykanska');
+INSERT INTO category (description) VALUES ('Wloska');
+INSERT INTO category (description) VALUES ('Polska');
+INSERT INTO category (description) VALUES ('Francuska');
+INSERT INTO category (description) VALUES ('Fast Food');
+INSERT INTO unit_of_measure (description) VALUES ('Lyzeczka');
+INSERT INTO unit_of_measure (description) VALUES ('Lyzeczka');
+INSERT INTO unit_of_measure (description) VALUES ('Kubek');
+INSERT INTO unit_of_measure (description) VALUES ('Szczypta');
+INSERT INTO unit_of_measure (description) VALUES ('Uncja');
