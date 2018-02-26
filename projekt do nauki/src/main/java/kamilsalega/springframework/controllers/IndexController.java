@@ -1,16 +1,10 @@
 package kamilsalega.springframework.controllers;
 
-import kamilsalega.springframework.domain.Category;
-import kamilsalega.springframework.domain.UnitOfMeasure;
-import kamilsalega.springframework.repositories.CategoryRepository;
-import kamilsalega.springframework.repositories.UnitOfMeasureRepository;
 import kamilsalega.springframework.services.RecipeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.Optional;
 
 
 
