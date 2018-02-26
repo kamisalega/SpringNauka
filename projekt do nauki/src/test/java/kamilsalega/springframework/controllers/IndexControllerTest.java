@@ -41,7 +41,12 @@ public class IndexControllerTest {
         Set<Recipe> recipes = new HashSet<>();
 
         recipes.add(new Recipe());
-        recipes.add(new Recipe());
+
+        Recipe recipe = new Recipe();
+
+        recipe.setId(1l);
+
+        recipes.add(recipe);
 
         when(recipeService.getRecipes()).thenReturn(recipes);
 
@@ -55,5 +60,6 @@ public class IndexControllerTest {
 
         Set<Recipe> setInController = argumentCaptor.getValue();
         assertEquals(2, setInController.size());
+
     }
 }
