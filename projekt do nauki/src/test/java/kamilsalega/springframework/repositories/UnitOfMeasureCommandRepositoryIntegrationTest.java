@@ -14,7 +14,7 @@ import java.util.Optional;
 import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class UnitOfMeasureRepositoryIntegrationTest {
+public class UnitOfMeasureCommandRepositoryIntegrationTest {
 
     @Autowired
     UnitOfMeasureRepository unitOfMeasureRepository;
