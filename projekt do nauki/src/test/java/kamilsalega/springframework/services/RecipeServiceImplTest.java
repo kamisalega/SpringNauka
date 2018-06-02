@@ -1,5 +1,6 @@
 package kamilsalega.springframework.services;
 
+import kamilsalega.springframework.commands.RecipeCommand;
 import kamilsalega.springframework.converters.RecipeCommandToRecipe;
 import kamilsalega.springframework.converters.RecipeToRecipeCommand;
 import kamilsalega.springframework.domain.Recipe;
@@ -57,18 +58,51 @@ public class RecipeServiceImplTest {
     }
 
     @Test
-    public void getRecipes() throws Exception {
+    public void getRecipeCommandByIdTest() throws Exception {
 
         Recipe recipe = new Recipe();
-        HashSet recipeSet = new HashSet<>();
-        recipeSet.add(recipe);
+        recipe.setId(1L);
+        Optional<Recipe> recipeOptional = Optional.of(recipe);
 
-        when(recipeService.getRecipes()).thenReturn(recipeSet);
+        when(recipeRepository.findById(anyLong())).thenReturn(recipeOptional);
+
+        RecipeCommand recipeCommand = new RecipeCommand();
+        recipeCommand.setId(1L);
+
+        when(recipeToRecipeCommand.convert(any())).thenReturn(recipeCommand);
+
+        RecipeCommand commandById = recipeService.findCommandById(1L);
+
+        assertNotNull("Null recipe returned", commandById);
+        verify(recipeRepository, times(1)).findById(anyLong());
+        verify(recipeRepository, never()).findAll();
+
+    }
+
+
+    @Test
+    public void getRecipesTest() throws Exception {
+
+        Recipe recipe = new Recipe();
+        HashSet recipesData = new HashSet<>();
+        recipesData.add(recipe);
+
+        when(recipeRepository.findAll()).thenReturn(recipesData);
 
         Set<Recipe> recipes = recipeService.getRecipes();
 
         assertEquals(recipes.size(), 1);
         verify(recipeRepository, times(1)).findAll();
         verify(recipeRepository, never()).findById(anyLong());
+    }
+
+    @Test
+    public void testDeleteById() throws Exception {
+//given
+        Long idToDelete = Long.valueOf(2L);
+//when
+        recipeService.deleteById(idToDelete);
+//then
+        verify(recipeRepository, times(1)).deleteById(anyLong());
     }
 }
