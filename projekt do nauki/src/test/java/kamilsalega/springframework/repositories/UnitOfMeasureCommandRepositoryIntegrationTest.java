@@ -31,7 +31,7 @@ public class UnitOfMeasureCommandRepositoryIntegrationTest {
     }
 
     @Test
-    public void findByDescriptionSzklanka() throws Exception{
+    public void findByDescriptionCup() throws Exception{
 
         Optional<UnitOfMeasure> unitOfMeasureOptional = unitOfMeasureRepository.findByDescription("Szklanka");
         assertEquals("Szklanka", unitOfMeasureOptional.get().getDescription());
