@@ -1,8 +1,10 @@
 package kamilsalega.springframework.services;
 
+import kamilsalega.springframework.commands.IngredientCommand;
 import kamilsalega.springframework.commands.RecipeCommand;
 import kamilsalega.springframework.converters.RecipeCommandToRecipe;
 import kamilsalega.springframework.converters.RecipeToRecipeCommand;
+import kamilsalega.springframework.domain.Ingredient;
 import kamilsalega.springframework.domain.Recipe;
 import kamilsalega.springframework.repositories.RecipeRepository;
 import org.junit.Before;
@@ -21,6 +23,8 @@ import static org.mockito.Mockito.*;
 public class RecipeServiceImplTest {
 
     RecipeServiceImpl recipeService;
+
+    IngredientService ingredientService;
 
 
     @Mock
@@ -105,4 +109,6 @@ public class RecipeServiceImplTest {
 //then
         verify(recipeRepository, times(1)).deleteById(anyLong());
     }
+
+
 }
